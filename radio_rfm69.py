@@ -96,5 +96,5 @@ while True:
         display.text('Sent Button C!', 25, 15, 1)
 
     display.show()
-    time.sleep(0.1)
+    time.sleep(1)
 
