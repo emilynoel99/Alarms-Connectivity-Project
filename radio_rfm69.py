@@ -74,7 +74,7 @@ while True:
         packet_text = str(prev_packet, "utf-8")
         display.text('RX: ', 0, 0, 1)
         print(rfm69.last_rssi)
-        display.text(f"{packet_text}{rfm69.last_rssi}" 25, 0, 1)
+        display.text(f"{packet_text}{rfm69.last_rssi}", 25, 0, 1)
         time.sleep(1)
         
 
