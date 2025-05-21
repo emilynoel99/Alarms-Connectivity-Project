@@ -18,6 +18,9 @@ import board
 import adafruit_ssd1306
 # Import the RFM69 radio module.
 import adafruit_rfm69
+import csv
+import os
+from datetime import datetime
 
 # Button A
 btnA = DigitalInOut(board.D5)
@@ -56,6 +59,14 @@ prev_packet = None
 # on the transmitter and receiver (or be set to None to disable/the default).
 rfm69.encryption_key = b'\x01\x02\x03\x04\x05\x06\x07\x08\x01\x02\x03\x04\x05\x06\x07\x08'
 
+# Open CSV file for logging
+csv_file = open("rssi_log.csv", "a", newline="")
+csv_writer = csv.writer(csv_file)
+
+# Write header if file is empty
+if os.stat("rssi_log.csv").st_size == 0:
+    csv_writer.writerow(["timestamp", "rssi"])
+
 while True:
     packet = None
     # draw a box to clear the image
@@ -73,8 +84,12 @@ while True:
         prev_packet = packet
         packet_text = str(prev_packet, "utf-8")
         display.text('RX: ', 0, 0, 1)
-        print(rfm69.last_rssi)
-        display.text(f"{packet_text}{rfm69.last_rssi}", 25, 0, 1)
+        rssi = rfm69.last_rssi
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        display.text(f"{packet_text}{rssi}", 25, 0, 1)
+        csv_writer.writerow([timestamp, rssi])
+        csv_file.flush()
+        print(f"Logged: {timestamp}, {rssi}")
         time.sleep(1)
         
 
