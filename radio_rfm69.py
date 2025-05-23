@@ -54,6 +54,7 @@ CS = DigitalInOut(board.CE1)
 RESET = DigitalInOut(board.D25)
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 rfm69 = adafruit_rfm69.RFM69(spi, CS, RESET, 915.0)
+rfm69.tx_power = 10  # Set transmit power to 10 dBm (valid range: 5 to 23)
 prev_packet = None
 # Optionally set an encryption key (16 byte AES key). MUST match both
 # on the transmitter and receiver (or be set to None to disable/the default).
@@ -96,20 +97,6 @@ while True:
     if not btnA.value:
         # Send Button A
         display.fill(0)
-        rfm69.set_power_level(20)
-        send_data("20%")
-        time.sleep(1)
-        rfm69.set_power_level(40)
-        send_data("40%")
-        time.sleep(1)
-        rfm69.set_power_level(60)
-        send_data("60%")
-        time.sleep(1)
-        rfm69.set_power_level(80)
-        send_data("80%")
-        time.sleep(1)
-        rfm69.set_power_level(100)
-        send_data("100%")
         button_a_data = bytes("Button A!\r\n","utf-8")
         rfm69.send(button_a_data)
         display.text('Sent Button A!', 25, 15, 1)
@@ -129,6 +116,3 @@ while True:
     display.show()
     time.sleep(1)
 
-def send_data(output):
-    output_data = bytes(output,"utf-8")
-    rfm69.send(output_data)
