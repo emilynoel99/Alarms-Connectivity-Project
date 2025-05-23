@@ -96,6 +96,20 @@ while True:
     if not btnA.value:
         # Send Button A
         display.fill(0)
+        rfm69.set_power_level(20)
+        send_data("20%")
+        time.sleep(1)
+        rfm69.set_power_level(40)
+        send_data("40%")
+        time.sleep(1)
+        rfm69.set_power_level(60)
+        send_data("60%")
+        time.sleep(1)
+        rfm69.set_power_level(80)
+        send_data("80%")
+        time.sleep(1)
+        rfm69.set_power_level(100)
+        send_data("100%")
         button_a_data = bytes("Button A!\r\n","utf-8")
         rfm69.send(button_a_data)
         display.text('Sent Button A!', 25, 15, 1)
@@ -115,3 +129,6 @@ while True:
     display.show()
     time.sleep(1)
 
+def send_data(output):
+    output_data = bytes(output,"utf-8")
+    rfm69.send(output_data)
