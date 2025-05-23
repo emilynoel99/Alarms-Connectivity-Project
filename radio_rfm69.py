@@ -54,7 +54,7 @@ CS = DigitalInOut(board.CE1)
 RESET = DigitalInOut(board.D25)
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 rfm69 = adafruit_rfm69.RFM69(spi, CS, RESET, 915.0, high_power = False)
-rfm69.tx_power = -4
+rfm69.tx_power = 13
 prev_packet = None
 # Optionally set an encryption key (16 byte AES key). MUST match both
 # on the transmitter and receiver (or be set to None to disable/the default).
