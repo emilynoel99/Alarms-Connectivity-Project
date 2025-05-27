@@ -10,6 +10,7 @@ Author: Brent Rubell for Adafruit Industries
 """
 # Import Python System Libraries
 import time
+time.sleep(1)
 # Import Blinka Libraries
 import busio
 from digitalio import DigitalInOut, Direction, Pull
