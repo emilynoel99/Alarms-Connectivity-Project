@@ -89,6 +89,7 @@ while True:
         rssi = rfm69.last_rssi
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         display.text(f"{packet_text}{rssi}", 25, 0, 1)
+        print(f"Received RSSI: {rssi} at {timestamp}")
         csv_writer.writerow([timestamp, rssi])
         csv_file.flush()
         
