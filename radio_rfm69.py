@@ -84,27 +84,13 @@ while True:
         # Display the packet text and rssi
         display.fill(0)
         prev_packet = packet
-       packet_text = str(prev_packet, "utf-8").strip()
+        packet_text = str(prev_packet, "utf-8")
         display.text('RX: ', 0, 0, 1)
         rssi = rfm69.last_rssi
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        # Parse button label from packet text
-        if "Button A" in packet_text:
-            button = "A"
-        elif "Button B" in packet_text:
-            button = "B"
-        elif "Button C" in packet_text:
-            button = "C"
-        else:
-            button = "Unknown"
-
-        display.text(f"{packet_text} {rssi}", 0, 10, 1)
-
-        # Log timestamp, RSSI, and button
-        csv_writer.writerow([timestamp, rssi, button])
+        display.text(f"{packet_text}{rssi}", 25, 0, 1)
+        csv_writer.writerow([timestamp, rssi])
         csv_file.flush()
-        print(f"Logged: {timestamp}, RSSI: {rssi}, Button: {button}")
         
     if not btnA.value:
         # Send Button A
