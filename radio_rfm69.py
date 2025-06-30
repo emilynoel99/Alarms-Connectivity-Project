@@ -96,19 +96,19 @@ while True:
     if not btnA.value:
         # Send Button A
         display.fill(0)
-        button_a_data = bytes("A\r\n","utf-8")
+        button_a_data = bytes(A,"utf-8")
         rfm69.send(button_a_data)
         display.text('Sent Button A!', 25, 15, 1)
     elif not btnB.value:
         # Send Button B
         display.fill(0)
-        button_b_data = bytes("B\r\n","utf-8")
+        button_b_data = bytes(B,"utf-8")
         rfm69.send(button_b_data)
         display.text('Sent Button B!', 25, 15, 1)
     elif not btnC.value:
         # Send Button C
         display.fill(0)
-        button_c_data = bytes("C\r\n","utf-8")
+        button_c_data = bytes(C,"utf-8")
         rfm69.send(button_c_data)
         display.text('Sent Button C!', 25, 15, 1)
 
