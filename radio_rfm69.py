@@ -96,19 +96,19 @@ while True:
     if not btnA.value:
         # Send Button A
         display.fill(0)
-        button_a_data = bytes("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tempus diam. Phasellus convallis ipsum in arcu tristique, ultrices lobortis massa ultricies. Donec sit amet posuere justo. Maecenas ac cursus arcu. Curabitur tincidunt nibh ac turpis blandit placerat. Aliquam in ultrices diam, ac condimentum enim. Nunc pulvinar odio ac neque facilisis laoreet. Vivamus dignissim id ipsum pretium vulputate. Curabitur hendrerit risus et lacus sollicitudin, sed mollis nunc finibus. Donec fringilla, tellus eget euismod rhoncus, justo eros pretium mauris, in commodo arcu nulla sit amet metus. Pellentesque eu metus varius, feugiat dui pellentesque, mollis risus. Nulla ut fringilla lacus. Nullam auctor a enim et sollicitudin.(A)\r\n","utf-8")
+        button_a_data = bytes("fringilla lacus Nullam auctor a enim sollicitudin.(A)\r\n","utf-8")
         rfm69.send(button_a_data)
         display.text('Sent Button A!', 25, 15, 1)
     elif not btnB.value:
         # Send Button B
         display.fill(0)
-        button_b_data = bytes("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tempus diam. Phasellus convallis ipsum in arcu tristique, ultrices lobortis massa ultricies. Donec sit amet posuere justo. Maecenas ac cursus arcu. Curabitur tincidunt nibh ac turpis blandit placerat. Aliquam in ultrices diam, ac condimentum enim. Nunc pulvinar odio ac neque facilisis laoreet. Vivamus dignissim id ipsum pretium vulputate. Curabitur hendrerit risus et lacus sollicitudin, sed mollis nunc finibus. Donec fringilla, tellus eget euismod rhoncus, justo eros pretium mauris, in commodo arcu nulla sit amet metus. Pellentesque eu metus varius, feugiat dui pellentesque, mollis risus. Nulla ut fringilla lacus. Nullam auctor a enim et sollicitudin.(B)\r\n","utf-8")
+        button_b_data = bytes("fringilla lacus Nullam auctor a enim sollicitudin.(B)\r\n","utf-8")
         rfm69.send(button_b_data)
         display.text('Sent Button B!', 25, 15, 1)
     elif not btnC.value:
         # Send Button C
         display.fill(0)
-        button_c_data = bytes("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tempus diam. Phasellus convallis ipsum in arcu tristique, ultrices lobortis massa ultricies. Donec sit amet posuere justo. Maecenas ac cursus arcu. Curabitur tincidunt nibh ac turpis blandit placerat. Aliquam in ultrices diam, ac condimentum enim. Nunc pulvinar odio ac neque facilisis laoreet. Vivamus dignissim id ipsum pretium vulputate. Curabitur hendrerit risus et lacus sollicitudin, sed mollis nunc finibus. Donec fringilla, tellus eget euismod rhoncus, justo eros pretium mauris, in commodo arcu nulla sit amet metus. Pellentesque eu metus varius, feugiat dui pellentesque, mollis risus. Nulla ut fringilla lacus. Nullam auctor a enim et sollicitudin.(C)\r\n","utf-8")
+        button_c_data = bytes("fringilla lacus Nullam auctor a enim sollicitudin.(C)\r\n","utf-8")
         rfm69.send(button_c_data)
         display.text('Sent Button C!', 25, 15, 1)
 
