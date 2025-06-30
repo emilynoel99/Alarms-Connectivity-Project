@@ -90,7 +90,7 @@ while True:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         display.text(f"{rssi}", 25, 0, 1)
         print(f"Received RSSI: {rssi} at {timestamp}")
-        csv_writer.writerow([timestamp, rssi, packet_text[-2]])
+        csv_writer.writerow([timestamp, rssi, packet_text])
         csv_file.flush()
         
     if not btnA.value:
